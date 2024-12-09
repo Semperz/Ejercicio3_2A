@@ -24,13 +24,7 @@ public class Course {
     @Column(name = "enddate", nullable = true)
     private LocalDate endDate;
 
-    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinTable(
-            name = "student_course",
-            joinColumns = @JoinColumn(name = "idcourse"),
-            inverseJoinColumns = @JoinColumn(name = "idstudent")
-
-    )
+    @ManyToMany (mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
     public Course() {

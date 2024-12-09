@@ -1,5 +1,6 @@
 package edu.badpals.model;
 
+import edu.badpals.enums.TypeEnum;
 import jakarta.persistence.*;
 import java.util.Objects;
 
@@ -12,11 +13,11 @@ public class Card {
     @Column(name = "idcard")
     private Long id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, unique = true)
     private String code;
 
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Transient
+    private TypeEnum type;
 
     @OneToOne(mappedBy = "card")
     private Student student;
@@ -24,7 +25,7 @@ public class Card {
     public Card() {
     }
 
-    public Card(String code, String type, Student student) {
+    public Card(String code, TypeEnum type, Student student) {
         this.code = code;
         this.type = type;
         this.student = student;
@@ -46,11 +47,11 @@ public class Card {
         this.code = code;
     }
 
-    public String getType() {
+    public TypeEnum getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 

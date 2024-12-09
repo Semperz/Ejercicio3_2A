@@ -24,11 +24,14 @@ public class Student {
     private String phone;
 
 
-    @OneToOne
-    @JoinColumn(name = "idcard", unique = true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_id", referencedColumnName = "idcard")
     private Card card;
 
-    @ManyToMany(mappedBy = "students", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToMany
+    @JoinTable(name = "student_course",
+            joinColumns = @JoinColumn(name = "idstudent"),
+            inverseJoinColumns = @JoinColumn(name = "idcourse"))
     private Set<Course> courses = new HashSet<>();
 
     public Student() {

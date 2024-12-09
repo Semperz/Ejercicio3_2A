@@ -1,5 +1,6 @@
 package edu.badpals;
 
+import edu.badpals.enums.TypeEnum;
 import edu.badpals.model.Card;
 import edu.badpals.model.Course;
 import edu.badpals.model.Student;
@@ -15,9 +16,10 @@ public class Main {
 
         try {
             em.getTransaction().begin();
-
-            Card card1 = new Card("_123", "fp", null);
-            Card card2 = new Card("_456", "eso", null);
+            TypeEnum typeFP = TypeEnum.FP;
+            TypeEnum typeESO = TypeEnum.ESO;
+            Card card1 = new Card("_123", typeFP, null);
+            Card card2 = new Card("_456", typeESO, null);
 
             Course course = new Course("Ciencias", null, null);
 

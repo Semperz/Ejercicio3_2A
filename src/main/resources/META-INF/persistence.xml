@@ -7,7 +7,7 @@
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3307/classDB"/>
-            <property name="jakarta.persistence.jdbc.user" value="usuario"/>
+            <property name="jakarta.persistence.jdbc.user" value="alumno"/>
             <property name="jakarta.persistence.jdbc.password" value="renaido"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
